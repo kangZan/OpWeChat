@@ -45,7 +45,7 @@ public class FileUtils {
     //打开程序记录的wechat地址
     public static boolean openLocalWCPath() {
         String path = loadPath();
-        if (path != null && "".equals(path.trim())) {
+        if (path != null && !"".equals(path.trim())) {
             try {
                 opWeChat(path);
                 return true;
