@@ -61,6 +61,17 @@ public class FileUtils {
         find("C:\\");
     }
 
+    //路径扫描
+    private static void find(String root) throws Exception {
+        File fc = new File(root);
+        System.out.println("开始扫描路径：");
+        for (String str : fc.list()) {
+            System.out.println(root + "\\" + str);
+            if (find(root, str)) {
+                break;
+            }
+        }
+    }
 
     //将@param path写入文件logpath中
     public static void write(String path) throws Exception {
@@ -87,17 +98,6 @@ public class FileUtils {
         }
     }
 
-    //路径扫描
-    private static void find(String root) throws Exception {
-        File fc = new File(root);
-        System.out.println("开始扫描路径：");
-        for (String str : fc.list()) {
-            System.out.println(root + "\\" + str);
-            if (find(root, str)) {
-                break;
-            }
-        }
-    }
 
     //遍历路径下文件夹找寻文件名为WeChat.exe的文件
     private static boolean find(String name, String nm) throws Exception {
