@@ -38,6 +38,7 @@ public class OpenWCUtil {
         } catch (Exception e) {
             FileUtils.findWechat();
         }
+        System.out.println("结束会话！");
     }
 
 
