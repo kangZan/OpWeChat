@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author: zan.Kang
  * @create: 2019-03-19 10:57
  **/
-public class OpenWCUtil {
+public class OpenWCMain {
     //获取合法数字输入
     private static Integer nextInt() {
         System.out.println("请输入数字(1~10):");
