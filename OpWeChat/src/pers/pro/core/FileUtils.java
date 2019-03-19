@@ -10,7 +10,7 @@ import java.io.*;
  **/
 public class FileUtils {
     private static final String LOGPATH = "wechat.tlog";
-    private static final String WECHAT_FILE_NAME= "WeChat.exe";
+    private static final String WECHAT_FILE_NAME = "WeChat.exe";
     private static Integer count = 1;
 
     //加载程序记录的wechat.exe所在地址
@@ -25,12 +25,7 @@ public class FileUtils {
             rdr = new InputStreamReader(new FileInputStream(f));
             int temp;
             while ((temp = rdr.read()) != -1) {
-                //对于window下，\r\n这两个字符在一起时，表示一个换行。
-                //但是如果这两个字符分开显示时，会换两行。
-                //因此，屏蔽掉\r，或者屏蔽掉\n。否则，将会出现很多空行
-//                if(((char)temp)!='\r'){
                 tpath += (char) temp;
-//                }
             }
         } catch (Exception e) {
             try {
@@ -52,9 +47,9 @@ public class FileUtils {
             } catch (Exception e) {
                 return false;
             }
-        } else {
-            return false;
         }
+        return false;
+
     }
 
     //默认扫描C盘下所有目录
