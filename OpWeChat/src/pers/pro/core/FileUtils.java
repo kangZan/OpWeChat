@@ -9,12 +9,13 @@ import java.io.*;
  * @create: 2019-03-19 13:18
  **/
 public class FileUtils {
-    private static final String logpath = "wechat.tlog";
+    private static final String LOGPATH = "wechat.tlog";
+    private static final String WECHAT_FILE_NAME= "WeChat.exe";
     private static Integer count = 1;
 
     //加载程序记录的wechat.exe所在地址
     private static String loadPath() {
-        File f = new File(logpath);
+        File f = new File(LOGPATH);
         if (!f.exists()) {
             return null;
         }
@@ -76,7 +77,7 @@ public class FileUtils {
 
     //将@param path写入文件logpath中
     public static void write(String path) throws Exception {
-        File f = new File(logpath);
+        File f = new File(LOGPATH);
         FileWriter fw;
         BufferedWriter bw;
         try {
@@ -104,10 +105,10 @@ public class FileUtils {
     private static boolean find(String name, String nm) throws Exception {
         File f = new File(name + "\\" + nm);
         if (!f.isDirectory() || f.list() == null) {
-            if (f.getName().equals("WeChat.exe")) {
+            if (f.getName().equals(WECHAT_FILE_NAME)) {
                 opWeChat(name + "\\" + nm);
                 write(name + "\\" + nm);
-                System.out.println("\n\n找到WeChat在路径下 :" + name + "\\" + nm + ";\n\n保存路径信息到文件中:" + System.getProperty("user.dir") + "\\" + logpath + ";");
+                System.out.println("\n\n找到WeChat在路径下 :" + name + "\\" + nm + ";\n\n保存路径信息到文件中:" + System.getProperty("user.dir") + "\\" + LOGPATH + ";");
                 return true;
             }
             return false;
