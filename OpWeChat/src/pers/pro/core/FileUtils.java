@@ -68,9 +68,10 @@ public class FileUtils {
         for (String str : fc.list()) {
             System.out.println(root + "\\" + str);
             if (find(root, str)) {
-                break;
+                return;
             }
         }
+        System.out.println("对不起，在C盘没有扫描到微信！");
     }
 
     //将@param path写入文件logpath中
