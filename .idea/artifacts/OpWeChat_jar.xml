@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OpWeChat:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OpWeChat_jar</output-path>
+    <root id="archive" name="OpWeChat.jar">
+      <element id="module-output" name="OpWeChat" />
+    </root>
+  </artifact>
+</component>
