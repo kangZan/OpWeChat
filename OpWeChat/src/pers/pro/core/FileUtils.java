@@ -52,22 +52,32 @@ public class FileUtils {
 
     }
 
-    //默认扫描C盘下所有目录
+
+    //默认扫描全盘所有目录
     public static void findWechat() throws Exception {
-        find("C:\\");
+        File[] roots = File.listRoots();
+        for (int i = 0; i < roots.length; i++) {
+            System.out.println("开始扫描" + roots[i].getPath() + "盘");
+            if (find(roots[i].getPath())) {
+                break;
+            }
+        }
     }
 
     //路径扫描
-    private static void find(String root) throws Exception {
+    private static boolean find(String root) throws Exception {
         File fc = new File(root);
-        System.out.println("开始扫描路径：");
+        if (fc.list() == null) {
+            return false;
+        }
         for (String str : fc.list()) {
-            System.out.println(root + "\\" + str);
+            System.out.println("\t\t" + root + "\\" + str);
             if (find(root, str)) {
-                return;
+                return true;
             }
         }
-        System.out.println("对不起，在C盘没有扫描到微信！");
+        System.out.println("在" + root + "没有扫描到微信！");
+        return false;
     }
 
     //将@param path写入文件logpath中
