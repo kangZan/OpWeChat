@@ -29,7 +29,7 @@ public class OpenWCMain {
         FileUtils.setCount(nextInt());
         try {
             if (!FileUtils.openLocalWCPath()) {
-                System.out.println("首次使用请告知wechat路径？(不知道可输入任意字符，由系统默认扫描C盘下文件)：");
+                System.out.println("首次使用请告知wechat路径？(不知道可输入任意字符，由系统默认全盘扫描文件)：");
                 Scanner in = new Scanner(System.in);
                 String scanPath = in.nextLine();
                 FileUtils.opWeChat(scanPath);
