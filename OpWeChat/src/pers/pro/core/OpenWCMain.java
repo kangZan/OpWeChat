@@ -39,6 +39,7 @@ public class OpenWCMain {
             FileUtils.findWechat();
         }
         System.out.println("结束会话！");
+        new Scanner(System.in).next();
     }
 
 
